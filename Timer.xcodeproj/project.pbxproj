@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF1670351D72D88F00C62B35 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1670341D72D88F00C62B35 /* Timer.swift */; };
+		CF1670371D74EF5600C62B35 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1670361D74EF5600C62B35 /* AlarmViewController.swift */; };
+		CF1670391D74F2F200C62B35 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1670381D74F2F200C62B35 /* Color.swift */; };
 		CF2A645D1D72BF4400268919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A645C1D72BF4400268919 /* AppDelegate.swift */; };
-		CF2A645F1D72BF4400268919 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A645E1D72BF4400268919 /* ViewController.swift */; };
 		CF2A64621D72BF4400268919 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF2A64601D72BF4400268919 /* Main.storyboard */; };
 		CF2A64641D72BF4400268919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF2A64631D72BF4400268919 /* Assets.xcassets */; };
 		CF2A64671D72BF4400268919 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF2A64651D72BF4400268919 /* LaunchScreen.storyboard */; };
 		CF2A64721D72BF4400268919 /* TimerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A64711D72BF4400268919 /* TimerTests.swift */; };
+		CF2A647F1D72BFE100268919 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A647E1D72BFE100268919 /* TimerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +29,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF1670341D72D88F00C62B35 /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		CF1670361D74EF5600C62B35 /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		CF1670381D74F2F200C62B35 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CF2A64591D72BF4400268919 /* Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Timer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2A645C1D72BF4400268919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CF2A645E1D72BF4400268919 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CF2A64611D72BF4400268919 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF2A64631D72BF4400268919 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF2A64661D72BF4400268919 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 		CF2A646D1D72BF4400268919 /* TimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2A64711D72BF4400268919 /* TimerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerTests.swift; sourceTree = "<group>"; };
 		CF2A64731D72BF4400268919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF2A647E1D72BFE100268919 /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +83,12 @@
 		CF2A645B1D72BF4400268919 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A647E1D72BFE100268919 /* TimerViewController.swift */,
+				CF1670341D72D88F00C62B35 /* Timer.swift */,
 				CF2A645C1D72BF4400268919 /* AppDelegate.swift */,
-				CF2A645E1D72BF4400268919 /* ViewController.swift */,
 				CF2A64601D72BF4400268919 /* Main.storyboard */,
+				CF1670381D74F2F200C62B35 /* Color.swift */,
+				CF1670361D74EF5600C62B35 /* AlarmViewController.swift */,
 				CF2A64631D72BF4400268919 /* Assets.xcassets */,
 				CF2A64651D72BF4400268919 /* LaunchScreen.storyboard */,
 				CF2A64681D72BF4400268919 /* Info.plist */,
@@ -197,7 +206,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF2A645F1D72BF4400268919 /* ViewController.swift in Sources */,
+				CF1670371D74EF5600C62B35 /* AlarmViewController.swift in Sources */,
+				CF1670351D72D88F00C62B35 /* Timer.swift in Sources */,
+				CF2A647F1D72BFE100268919 /* TimerViewController.swift in Sources */,
+				CF1670391D74F2F200C62B35 /* Color.swift in Sources */,
 				CF2A645D1D72BF4400268919 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +400,7 @@
 				CF2A64781D72BF4400268919 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF2A64791D72BF4400268919 /* Build configuration list for PBXNativeTarget "TimerTests" */ = {
 			isa = XCConfigurationList;
@@ -396,6 +409,7 @@
 				CF2A647B1D72BF4400268919 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
