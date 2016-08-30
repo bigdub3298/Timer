@@ -218,6 +218,7 @@
         <!--Alarm View Controller-->
         <scene sceneID="iMH-Gp-jLG">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Mg-Br-RKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="teH-hk-J7v" customClass="AlarmViewController" customModule="Timer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="x2W-hS-Lrp"/>
@@ -227,26 +228,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alarm View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arH-nw-fsN">
-                                <rect key="frame" x="217" y="218" width="166" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AU0-8E-z4Q">
+                                <rect key="frame" x="0.0" y="114" width="600" height="437"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="jB0-Fg-d7W">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="wot-uH-Wb1"/>
+                                        </constraints>
+                                        <date key="date" timeIntervalSinceReferenceDate="494213829.73061001">
+                                            <!--2016-08-30 01:37:09 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You alarm is not set." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kw9-fV-FOz">
+                                        <rect key="frame" x="0.0" y="250" width="600" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zE-g1-3nj">
+                                        <rect key="frame" x="0.0" y="267" width="600" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="tCs-3j-mWc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Irz-UB-C2y">
+                                        <rect key="frame" x="0.0" y="317" width="600" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="NNh-RR-URb"/>
+                                        </constraints>
+                                        <state key="normal" title="Set Alarm"/>
+                                        <connections>
+                                            <action selector="setAlarmButtonTapped:" destination="teH-hk-J7v" eventType="touchUpInside" id="3og-nn-V47"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.65490196079999996" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="AU0-8E-z4Q" secondAttribute="trailing" id="Hzc-GX-mGS"/>
+                            <constraint firstItem="AU0-8E-z4Q" firstAttribute="top" secondItem="x2W-hS-Lrp" secondAttribute="bottom" constant="50" id="TDG-Kp-hx8"/>
+                            <constraint firstItem="AU0-8E-z4Q" firstAttribute="leading" secondItem="WqV-6s-mYl" secondAttribute="leading" id="vFN-2W-Uvi"/>
+                            <constraint firstItem="AU0-8E-z4Q" firstAttribute="bottom" secondItem="V1Y-Fi-Sbh" secondAttribute="top" id="vlw-mi-N5l"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="XtE-ER-4dJ"/>
+                    <connections>
+                        <outlet property="alarmDateLabel" destination="3zE-g1-3nj" id="3nK-NA-oNh"/>
+                        <outlet property="alarmSetLabel" destination="kw9-fV-FOz" id="sSt-yi-chd"/>
+                        <outlet property="datePickerView" destination="jB0-Fg-d7W" id="SGp-0R-g7B"/>
+                        <outlet property="setAlarmButton" destination="Irz-UB-C2y" id="XP2-VJ-3t4"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Mg-Br-RKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1918" y="453"/>
         </scene>
-        <!--Item-->
+        <!--Timer-->
         <scene sceneID="o8e-PQ-ZTH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Lu-nc-cFI" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="0HV-f4-2MC"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="timerIcon" selectedImage="timerIconSelected" id="0HV-f4-2MC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z0b-4o-PGy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -279,11 +324,11 @@
             </objects>
             <point key="canvasLocation" x="490" y="-323"/>
         </scene>
-        <!--Item-->
+        <!--Alarm-->
         <scene sceneID="HUI-t1-V0F">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MDf-Fl-HHa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Jhh-x7-ZPi"/>
+                    <tabBarItem key="tabBarItem" title="Alarm" image="alarmIcon" selectedImage="alarmIconSelected" id="Jhh-x7-ZPi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCX-2K-s3b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -299,4 +344,10 @@
             <point key="canvasLocation" x="1235" y="453"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarmIcon" width="25" height="25"/>
+        <image name="alarmIconSelected" width="25" height="25"/>
+        <image name="timerIcon" width="25" height="25"/>
+        <image name="timerIconSelected" width="25" height="25"/>
+    </resources>
 </document>

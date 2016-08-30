@@ -76,7 +76,7 @@ class Timer: NSObject {
     
     func startTimer(time: NSTimeInterval) {
         if !isOn {
-            timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(1.0), target: self, selector: #selector(Timer.secondTick), userInfo: nil, repeats: true)
+            timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(0.1), target: self, selector: #selector(Timer.secondTick), userInfo: nil, repeats: true)
         }
     }
     

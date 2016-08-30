@@ -22,25 +22,31 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set UIPickerViewDelegate to this view controller
         hoursPickerView.delegate = self
         minutesPickerView.delegate = self
         
+        
+        // Add observer to second tick and timer complete notifications
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TimerViewController.updateTimerLabel), name: Timer.kSecondTick, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(TimerViewController.timerComplete), name:Timer.kTimerComplete, object: nil)
         
+        // set minutes picker to automatically select 1
         minutesPickerView.selectRow(1, inComponent: 0, animated: true)
         
         view.layoutIfNeeded()
         
+        // Configure buttons to be circular and have borders 
         pauseButton.layer.cornerRadius = pauseButton.bounds.height / 2
         pauseButton.layer.masksToBounds = true
-        pauseButton.layer.borderWidth = 1.0
+        pauseButton.layer.borderWidth = 2.0
         pauseButton.layer.borderColor = pauseButton.currentTitleColor.CGColor
         
         startButton.layer.cornerRadius = startButton.bounds.height / 2
         startButton.layer.masksToBounds = true
-        startButton.layer.borderWidth = 1.0
-        startButton.layer.borderColor = startButton.currentTitleColor.CGColor
+        startButton.layer.borderWidth = 2.0
+        startButton.layer.borderColor = UIColor.lightBlueColorTimer().CGColor
+        startButton.setTitleColor(UIColor.lightBlueColorTimer(), forState: .Normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,12 +115,24 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         timerLabel.hidden = false
         pickerStackView.hidden = true
         startButton.setTitle("Cancel", forState: .Normal)
+        
+        // Set up button colors
+        startButton.setTitleColor(UIColor.blueColorTimer(), forState: .Normal)
+        startButton.layer.borderColor = UIColor.blueColorTimer().CGColor
+        pauseButton.setTitleColor(UIColor.lightBlueColorTimer(), forState: .Normal)
+        pauseButton.layer.borderColor = UIColor.lightBlueColorTimer().CGColor
     }
     
     func switchToPickerView() {
         pickerStackView.hidden = false
         timerLabel.hidden = true
         startButton.setTitle("Start", forState: .Normal)
+        
+        // Set up button colors
+        startButton.setTitleColor(UIColor.lightBlueColorTimer(), forState: .Normal)
+        startButton.layer.borderColor = UIColor.lightBlueColorTimer().CGColor
+        pauseButton.setTitleColor(UIColor.blueColorTimer(), forState: .Normal)
+        pauseButton.layer.borderColor = UIColor.blueColorTimer().CGColor
     }
 
     /*

@@ -15,8 +15,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        AppearanceController.initializeAppearance()
+        
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        
+        // Check user preference on notifications 
+        application.registerUserNotificationSettings(notificationSettings)
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        
+        if notification.category == Alarm.categoryAlarm {
+            let alarmAlert = UIAlertController(title: "Alarm!", message: nil, preferredStyle: .Alert)
+        
+            alarmAlert.addAction(UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil))
+            
+            window?.rootViewController?.presentViewController(alarmAlert, animated: true, completion: nil)
+            Alarm.alarmComplete()
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

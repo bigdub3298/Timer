@@ -9,11 +9,36 @@
 import UIKit
 
 class AlarmViewController: UIViewController {
+    @IBOutlet weak var datePickerView: UIDatePicker!
+    @IBOutlet weak var alarmSetLabel: UILabel!
+    @IBOutlet weak var alarmDateLabel: UILabel!
+    @IBOutlet weak var setAlarmButton: UIButton!
+    
+    
+    var alarm = Alarm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setAlarmButton.backgroundColor = UIColor.blueColorTimer()
+        setAlarmButton.tintColor = UIColor.lightBlueColorTimer()
+        datePickerView.minimumDate = NSDate()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AlarmViewController.alarmComplete), name: Alarm.notifComplete, object: nil)
+        
+        guard let localNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else { return }
+        alarm.cancel()
+        
+        for notification in localNotifications {
+            if notification.category == Alarm.categoryAlarm {
+                UIApplication.sharedApplication().cancelLocalNotification(notification)
+                
+                guard let fireDate = notification.fireDate else { return }
+                alarm.arm(fireDate)
+                alarmSet()
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +47,45 @@ class AlarmViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func setAlarmButtonTapped(sender: UIButton) {
+        if !alarm.isArmed {
+            alarm.arm(datePickerView.date)
+            alarmSet()
+        } else {
+            alarm.cancel()
+            alarmNotSet()
+        }
     }
-    */
+    
+    func alarmComplete() {
+        alarmNotSet()
+    }
 
+    func alarmSet() {
+        setAlarmButton.setTitle("Cancel Alarm", forState: .Normal)
+        alarmSetLabel.text = "Your alarm is set!"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.timeStyle = .ShortStyle
+        dateFormatter.dateStyle = .LongStyle
+        
+        if let date = alarm.alarmDate {
+            alarmDateLabel.text = dateFormatter.stringFromDate(date)
+            datePickerView.date = date
+        } else {
+            alarmDateLabel.text = ""
+        }
+        
+        datePickerView.userInteractionEnabled = false
+    }
+    
+    func alarmNotSet() {
+        setAlarmButton.setTitle("Set Alarm", forState: .Normal)
+        alarmSetLabel.text = "Your alarm is not set."
+        alarmDateLabel.text = ""
+        
+        datePickerView.minimumDate = NSDate()
+        datePickerView.date = NSDate()
+        datePickerView.userInteractionEnabled = true
+        
+    }
 }
