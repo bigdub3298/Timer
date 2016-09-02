@@ -25,8 +25,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CxD-hh-w6c" userLabel="Top View">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                         <subviews>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5g2-LC-nBO">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="178.5"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5g2-LC-nBO">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -35,21 +35,21 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                                 <subviews>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Phg-UF-zq0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="150" id="Igr-XT-Pfr"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="0.0" width="247" height="200"/>
                                                     </pickerView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Hours" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z38-QZ-Gaj">
-                                                        <rect key="frame" x="150" y="0.0" width="239" height="200"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z38-QZ-Gaj">
+                                                        <rect key="frame" x="247" y="0.0" width="46" height="200"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="46" id="A2Q-tr-ftB"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D56-Vu-RRi">
-                                                        <rect key="frame" x="389" y="0.0" width="150" height="200"/>
+                                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D56-Vu-RRi">
+                                                        <rect key="frame" x="293" y="0.0" width="247" height="200"/>
                                                     </pickerView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBU-3o-JGg">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBU-3o-JGg">
                                                         <rect key="frame" x="539" y="0.0" width="61" height="200"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,14 +57,9 @@
                                                     </label>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="Z38-QZ-Gaj" firstAttribute="width" secondItem="GBU-3o-JGg" secondAttribute="width" id="NmM-Q6-2gu"/>
-                                                    <constraint firstItem="D56-Vu-RRi" firstAttribute="width" secondItem="Phg-UF-zq0" secondAttribute="width" id="ysi-ZV-sMc"/>
+                                                    <constraint firstItem="D56-Vu-RRi" firstAttribute="width" secondItem="Phg-UF-zq0" secondAttribute="width" id="86G-l5-h6o"/>
+                                                    <constraint firstAttribute="trailing" secondItem="D56-Vu-RRi" secondAttribute="trailing" constant="61" id="zi2-Ay-F0q"/>
                                                 </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="NmM-Q6-2gu"/>
-                                                    </mask>
-                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.65490196079999996" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,8 +71,7 @@
                                             <constraint firstAttribute="bottom" secondItem="myB-jo-XJB" secondAttribute="bottom" id="bg4-sm-rxM"/>
                                             <constraint firstAttribute="trailing" secondItem="5g2-LC-nBO" secondAttribute="trailing" id="i0l-Be-jXO"/>
                                             <constraint firstItem="5g2-LC-nBO" firstAttribute="leading" secondItem="CxD-hh-w6c" secondAttribute="leading" id="iGr-Jp-RhM"/>
-                                            <constraint firstAttribute="bottom" secondItem="5g2-LC-nBO" secondAttribute="bottom" constant="21.5" id="jCS-1L-3eE"/>
-                                            <constraint firstAttribute="height" constant="200" id="nZt-fx-JqZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="5g2-LC-nBO" secondAttribute="bottom" id="jCS-1L-3eE"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zBn-bk-aG4" userLabel="Middle View">
@@ -155,6 +149,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="zBn-bk-aG4" firstAttribute="top" secondItem="csG-Cv-HJI" secondAttribute="top" constant="200" id="0Me-Kl-3hG"/>
                                     <constraint firstItem="L3D-ip-F52" firstAttribute="leading" secondItem="csG-Cv-HJI" secondAttribute="leading" id="638-P9-Dhs"/>
                                     <constraint firstItem="L3D-ip-F52" firstAttribute="top" secondItem="zBn-bk-aG4" secondAttribute="bottom" id="FWN-AY-s0V"/>
                                     <constraint firstAttribute="bottom" secondItem="L3D-ip-F52" secondAttribute="bottom" id="VVd-FS-qDE"/>
