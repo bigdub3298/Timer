@@ -17,6 +17,7 @@ class AppearanceController {
         
         UITabBar.appearance().barTintColor = UIColor.blueColorTimer()
         UITabBar.appearance().tintColor = UIColor.lightBlueColorTimer()
+        
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightBlueColorTimer()], forState: .Selected)
     }

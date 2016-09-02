@@ -35,7 +35,7 @@ class AlarmViewController: UIViewController {
                 
                 guard let fireDate = notification.fireDate else { return }
                 alarm.arm(fireDate)
-                alarmSet()
+                switchToAlarmSet()
             }
         }
         
@@ -50,18 +50,18 @@ class AlarmViewController: UIViewController {
     @IBAction func setAlarmButtonTapped(sender: UIButton) {
         if !alarm.isArmed {
             alarm.arm(datePickerView.date)
-            alarmSet()
+            switchToAlarmSet()
         } else {
             alarm.cancel()
-            alarmNotSet()
+            switchToAlarmNotSet()
         }
     }
     
     func alarmComplete() {
-        alarmNotSet()
+        switchToAlarmNotSet()
     }
 
-    func alarmSet() {
+    func switchToAlarmSet() {
         setAlarmButton.setTitle("Cancel Alarm", forState: .Normal)
         alarmSetLabel.text = "Your alarm is set!"
         let dateFormatter = NSDateFormatter()
@@ -78,7 +78,7 @@ class AlarmViewController: UIViewController {
         datePickerView.userInteractionEnabled = false
     }
     
-    func alarmNotSet() {
+    func switchToAlarmNotSet() {
         setAlarmButton.setTitle("Set Alarm", forState: .Normal)
         alarmSetLabel.text = "Your alarm is not set."
         alarmDateLabel.text = ""

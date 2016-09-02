@@ -16,6 +16,7 @@ class Timer: NSObject {
     private(set) var seconds = NSTimeInterval(0)
     private(set) var totalSeconds = NSTimeInterval(0)
     private var timer: NSTimer?
+    
 
     
     var isOn: Bool {
@@ -24,6 +25,11 @@ class Timer: NSObject {
         } else {
             return false
         }
+    }
+    
+    var pausedSeconds: NSTimeInterval {
+        let s = seconds
+        return s
     }
     
     var string: String {
@@ -85,5 +91,10 @@ class Timer: NSObject {
             timer?.invalidate()
             timer = nil
         }
+    }
+    
+    func restartTimer() {
+        startTimer(totalSeconds)
+        seconds = totalSeconds 
     }
 }

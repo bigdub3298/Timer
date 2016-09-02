@@ -17,6 +17,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     
     var timer = Timer()
+    var pausedSeconds = NSTimeInterval(0)
     
     
     override func viewDidLoad() {
@@ -76,7 +77,14 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     
     @IBAction func pauseButtonTapped(sender: UIButton) {
-        // add code to pause timer  
+        if timer.isOn {
+            pausedSeconds = timer.pausedSeconds
+            timer.stopTimer()
+            startButton.enabled = false
+        } else {
+            timer.startTimer(pausedSeconds)
+            startButton.enabled = true 
+        }
     }
     
     @IBAction func startButtonTapped(sender: UIButton) {
@@ -105,10 +113,26 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
 
     
     func timerComplete() {
-        switchToPickerView()
+        displayAlert() 
     }
     func updateTimerLabel() {
         timerLabel.text = timer.string
+    }
+    
+    func displayAlert() {
+        let timerAlert = UIAlertController(title: "Times up!", message: nil, preferredStyle: .Alert)
+        
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: {(_) -> Void in
+            self.switchToPickerView()
+        })
+        
+        let restartTimer = UIAlertAction(title: "Restart", style: .Default, handler: { (_) -> Void in
+            self.timer.restartTimer()
+        })
+        
+        timerAlert.addAction(dismissAction)
+        timerAlert.addAction(restartTimer)
+        self.presentViewController(timerAlert, animated: true, completion: nil)
     }
     
     func switchToTimerView() {
@@ -135,6 +159,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         pauseButton.layer.borderColor = UIColor.blueColorTimer().CGColor
     }
 
+    
     /*
     // MARK: - Navigation
 
