@@ -87,15 +87,15 @@
 		CF2A645B1D72BF4400268919 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				CF2A647E1D72BFE100268919 /* TimerViewController.swift */,
+				CF2A645C1D72BF4400268919 /* AppDelegate.swift */,
+				CF1670381D74F2F200C62B35 /* Color.swift */,
 				CF16703C1D75117B00C62B35 /* Alarm.swift */,
 				CF1670341D72D88F00C62B35 /* Timer.swift */,
-				CF2A645C1D72BF4400268919 /* AppDelegate.swift */,
-				CF2A64601D72BF4400268919 /* Main.storyboard */,
 				CF16703A1D75060400C62B35 /* AppearanceController.swift */,
-				CF1670381D74F2F200C62B35 /* Color.swift */,
 				CF1670361D74EF5600C62B35 /* AlarmViewController.swift */,
+				CF2A647E1D72BFE100268919 /* TimerViewController.swift */,
 				CF2A64631D72BF4400268919 /* Assets.xcassets */,
+				CF2A64601D72BF4400268919 /* Main.storyboard */,
 				CF2A64651D72BF4400268919 /* LaunchScreen.storyboard */,
 				CF2A64681D72BF4400268919 /* Info.plist */,
 			);

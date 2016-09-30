@@ -74,7 +74,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
        return String(row)
     }
     
-    
+    // MARK: - Actions
     
     @IBAction func pauseButtonTapped(sender: UIButton) {
         if timer.isOn {
@@ -119,6 +119,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         timerLabel.text = timer.string
     }
     
+    /// Displays timer alert
     func displayAlert() {
         let timerAlert = UIAlertController(title: "Times up!", message: nil, preferredStyle: .Alert)
         
@@ -135,6 +136,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         self.presentViewController(timerAlert, animated: true, completion: nil)
     }
     
+    /// Switches to the timer countdown view
     func switchToTimerView() {
         timerLabel.hidden = false
         pickerStackView.hidden = true
@@ -147,6 +149,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         pauseButton.layer.borderColor = UIColor.lightBlueColorTimer().CGColor
     }
     
+    /// Switches to the timer picker view 
     func switchToPickerView() {
         pickerStackView.hidden = false
         timerLabel.hidden = true
@@ -158,16 +161,4 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         pauseButton.setTitleColor(UIColor.blueColorTimer(), forState: .Normal)
         pauseButton.layer.borderColor = UIColor.blueColorTimer().CGColor
     }
-
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

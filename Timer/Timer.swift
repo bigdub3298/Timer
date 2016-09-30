@@ -18,7 +18,7 @@ class Timer: NSObject {
     private var timer: NSTimer?
     
 
-    
+    // Determines if the timer is on or not
     var isOn: Bool {
         if timer != nil {
             return true
@@ -27,11 +27,13 @@ class Timer: NSObject {
         }
     }
     
+    // Saves the amount of seconds if the timer is paused
     var pausedSeconds: NSTimeInterval {
         let s = seconds
         return s
     }
     
+    // Timer string representation 
     var string: String {
         get {
             let totalSeconds = Int(self.seconds)
@@ -64,28 +66,34 @@ class Timer: NSObject {
         }
     }
     
+    /// Ticks the timer down by 1 second
     func secondTick() {
         
         seconds -= 1
+        // Sends second tick notification
         NSNotificationCenter.defaultCenter().postNotificationName(Timer.kSecondTick, object: nil, userInfo: nil)
         if seconds <= 0 {
             stopTimer()
+            // Sends timer complete notification
             NSNotificationCenter.defaultCenter().postNotificationName(Timer.kTimerComplete, object: nil, userInfo: nil)
         }
         
     }
     
+    /// Set the timer with seconds and total seconds
     func setTimer(seconds: NSTimeInterval, totalSeconds: NSTimeInterval) {
         self.seconds = seconds
         self.totalSeconds = totalSeconds
     }
     
+    /// Starts the timer if it is not on
     func startTimer(time: NSTimeInterval) {
         if !isOn {
             timer = NSTimer.scheduledTimerWithTimeInterval(NSTimeInterval(0.1), target: self, selector: #selector(Timer.secondTick), userInfo: nil, repeats: true)
         }
     }
     
+    /// Stops the timer if it is on and sets it nil
     func stopTimer() {
         if isOn {
             timer?.invalidate()
@@ -93,6 +101,7 @@ class Timer: NSObject {
         }
     }
     
+    /// Restarts the timer with the previous total seconds 
     func restartTimer() {
         startTimer(totalSeconds)
         seconds = totalSeconds 

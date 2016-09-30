@@ -9,10 +9,13 @@
 import UIKit
 
 class Alarm: NSObject {
+    // read only property
     private(set) var alarmDate: NSDate?
+    
     static let categoryAlarm = "categoryAlarm"
     static let notifComplete = "notifComplete"
     
+    // computes weather the alarm is active or nil
     var isArmed: Bool {
         get {
             if alarmDate != nil {
@@ -25,6 +28,7 @@ class Alarm: NSObject {
     
     private var localNotification: UILocalNotification?
     
+    /// Actives the alarm and shedules a local notification with the passed in fire date
     func arm(fireDate: NSDate) {
         alarmDate = fireDate
         let alarmNotif = UILocalNotification()
@@ -38,6 +42,7 @@ class Alarm: NSObject {
         localNotification = alarmNotif
     }
     
+    /// cancels the alarm
     func cancel() {
         if isArmed {
             alarmDate = nil
@@ -47,6 +52,7 @@ class Alarm: NSObject {
         }
     }
     
+    /// Posts a notification for when the alarm is complete 
     static func alarmComplete() {
         NSNotificationCenter.defaultCenter().postNotificationName(Alarm.notifComplete, object: nil, userInfo: nil)
     }

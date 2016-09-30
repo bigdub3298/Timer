@@ -20,19 +20,29 @@ class AlarmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Sets alarm button appearance
         setAlarmButton.backgroundColor = UIColor.blueColorTimer()
         setAlarmButton.tintColor = UIColor.lightBlueColorTimer()
+        
+        // Ensures that users cannot pick a later date than the current date
         datePickerView.minimumDate = NSDate()
         
+        // Makes the AlarmViewController an observer of the alarm complete notification
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AlarmViewController.alarmComplete), name: Alarm.notifComplete, object: nil)
         
+        // Grabs all local notifications
         guard let localNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else { return }
+        
+        // Cancels previous alarm objects
         alarm.cancel()
         
+        // Loops through all local notifications
         for notification in localNotifications {
             if notification.category == Alarm.categoryAlarm {
+                // Cancels the alarm local notification
                 UIApplication.sharedApplication().cancelLocalNotification(notification)
                 
+                // Arms a new alarm with the previous fire date
                 guard let fireDate = notification.fireDate else { return }
                 alarm.arm(fireDate)
                 switchToAlarmSet()
@@ -61,6 +71,7 @@ class AlarmViewController: UIViewController {
         switchToAlarmNotSet()
     }
 
+    /// Switches to the alarm set view
     func switchToAlarmSet() {
         setAlarmButton.setTitle("Cancel Alarm", forState: .Normal)
         alarmSetLabel.text = "Your alarm is set!"
@@ -78,6 +89,7 @@ class AlarmViewController: UIViewController {
         datePickerView.userInteractionEnabled = false
     }
     
+    /// Switches to the alarm not set view
     func switchToAlarmNotSet() {
         setAlarmButton.setTitle("Set Alarm", forState: .Normal)
         alarmSetLabel.text = "Your alarm is not set."

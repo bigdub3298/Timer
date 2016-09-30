@@ -12,12 +12,15 @@ import UIKit
 class AppearanceController {
     
     static func initializeAppearance() {
+        // Sets the colors for the navigation bar
         UINavigationBar.appearance().barTintColor = UIColor.orangeColorTimer()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        // Sets the color for the tab bar
         UITabBar.appearance().barTintColor = UIColor.blueColorTimer()
         UITabBar.appearance().tintColor = UIColor.lightBlueColorTimer()
         
+        // Sets the color for the tab bar items 
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.whiteColor()], forState: .Normal)
         UITabBarItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.lightBlueColorTimer()], forState: .Selected)
     }
